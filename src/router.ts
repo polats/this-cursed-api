@@ -102,7 +102,7 @@ const getCombinedMaterialIds = async (materials) => {
 
   // for each material, combine with each other material and get the combination id by keccac256
   const combinedMaterialIds = materials.flatMap((material, i) =>
-    materials.slice(i + 1).map((otherMaterial) => {
+    materials.slice(i).map((otherMaterial) => {
 
       // check greater than to avoid duplicate combinations
       let A, B;
