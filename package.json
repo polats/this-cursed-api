@@ -17,6 +17,7 @@
     "@latticexyz/schema-type": "^2.0.7",
     "@latticexyz/store-sync": "^2.0.7",
     "@latticexyz/world": "^2.0.7",
+    "ethers": "^6.12.1",
     "itty-router": "^5.0.17"
   }
 }
