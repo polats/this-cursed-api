@@ -66,5 +66,29 @@ export const config = defineWorld({
         outputs: "bytes14[2]",
       },
     },
+    Name: {
+      key: ["id"],
+      schema: {
+        id: "bytes32",
+        value: "string",
+      },
+    },
+    CarriedBy: "bytes32",
+    MachinesInPod: "bytes32[]", // IDs of machines in pod
+    MachineType: {
+      key: ["id"],
+      schema: {
+        id: "bytes32",
+        machine: "machineType",
+      },
+    },
+    IncomingConnections: {
+      key: ["id"],
+      schema: {
+        id: "bytes32",
+        connections: "bytes32[]", // Incoming connections on a machine
+      }
+    },
+    OutgoingConnections: "bytes32[]", // Outgoing connections on a machine
   },
 });
