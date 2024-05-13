@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "bun src/router.ts",
-    "dev": "bun --watch src/router.ts"
+    "dev": "bun --watch -p 4000 src/router.ts"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",

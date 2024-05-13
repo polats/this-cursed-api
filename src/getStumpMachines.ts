@@ -1,7 +1,14 @@
 import { config } from "./mud.config.js";
 import { fetchRecords } from "./fetchRecords.js";
+import { isAddress } from "viem";
 
 export async function getStumpMachines(address) {
+
+  if (!isAddress(address)) {
+    return {
+      error: "Invalid Employee Number"
+    }
+  }
 
   // pod key is address to bytes32
   const key = "0x000000000000000000000000" + address.slice(2).toLowerCase();
@@ -9,6 +16,12 @@ export async function getStumpMachines(address) {
   const podRecords = (await fetchRecords([config.tables.CarriedBy])).records;
   const podId = podRecords.find(
     (r) => r.fields.id === key)?.fields.value;
+
+  if (!podId) {
+    return {
+      error: "Stump Not Found"
+    }
+  }
 
   const machinesInPodRecords = (await fetchRecords([config.tables.MachinesInPod])).records;
   const machinesInPod = machinesInPodRecords.find(
